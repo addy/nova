@@ -21,12 +21,12 @@ class Home extends Component {
   render() {
     const { nums } = this.state;
     return (
-      <div>
-        <ul>
+      <div className="container">
+        <div className="columns">
           {nums.map(num => (
-            <li>{num}</li>
+            <div className="column">{num}</div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

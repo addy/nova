@@ -1,57 +1,59 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
-import Whatever from './components/Whatever';
+import Resume from './components/Resume';
+import About from './components/About';
 import './App.css';
 
-const styles = {
-  root: {
-    flexGrow: 1
-  },
-  grow: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
-  }
-};
-
 const App = props => {
-  const { classes } = props;
   return (
     <Router>
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" className={classes.grow}>
-              Nova
-            </Typography>
-          </Toolbar>
-        </AppBar>
-        <div>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/whatever" component={Whatever} />
+      <div>
+        <section className="hero is-dark">
+          <div className="hero-head">
+            <nav className="navbar" role="navigation" aria-label="main navigation">
+              <div id="linkz" className="navbar-menu">
+                <div className="navbar-start">
+                  <Link to="/" className="navbar-item">
+                    Home
+                  </Link>
+                  <Link to="/resume" className="navbar-item">
+                    Résumé
+                  </Link>
+                  <Link to="/about" className="navbar-item">
+                    About
+                  </Link>
+                </div>
+                <div className="navbar-end">
+                  <span class="navbar-item">
+                    <a class="button is-light" href="https://github.com/x4nt">
+                      <span class="icon">
+                        <i class="fab fa-github" />
+                      </span>
+                      <span>Github</span>
+                    </a>
+                  </span>
+                </div>
+              </div>
+            </nav>
+            <div class="hero-body">
+              <div class="container has-text-centered">
+                <h1 class="title">Addison Shaw</h1>
+                <h2 class="subtitle">is my name</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div className="section">
+          <div className="container">
+            <Route exact path="/" component={Home} />
+            <Route exact path="/resume" component={Resume} />
+            <Route exact path="/about" component={About} />
+          </div>
         </div>
       </div>
     </Router>
   );
 };
 
-App.propTypes = {
-  classes: PropTypes.object.isRequired
-};
-
-export default withStyles(styles)(App);
+export default App;
