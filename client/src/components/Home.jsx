@@ -11,7 +11,7 @@ class Home extends Component {
 
   componentDidMount() {
     request
-      .get('/ids')
+      .get('/api/ids')
       .set('accept', 'json')
       .then(res => {
         this.setState({ nums: res.body });
