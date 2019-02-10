@@ -5,7 +5,7 @@ import Resume from './components/Resume';
 import About from './components/About';
 import './App.css';
 
-const App = props => {
+const App = () => {
   return (
     <Router>
       <div>
@@ -25,10 +25,10 @@ const App = props => {
                   </Link>
                 </div>
                 <div className="navbar-end">
-                  <span class="navbar-item">
-                    <a class="button is-light" href="https://github.com/x4nt">
-                      <span class="icon">
-                        <i class="fab fa-github" />
+                  <span className="navbar-item">
+                    <a className="button is-light" href="https://github.com/x4nt">
+                      <span className="icon">
+                        <i className="fab fa-github" />
                       </span>
                       <span>Github</span>
                     </a>
@@ -36,21 +36,17 @@ const App = props => {
                 </div>
               </div>
             </nav>
-            <div class="hero-body">
-              <div class="container has-text-centered">
-                <h1 class="title">Addison Shaw</h1>
-                <h2 class="subtitle">is my name</h2>
+            <div className="hero-body">
+              <div className="container has-text-centered">
+                <h1 className="title">Addison Shaw</h1>
+                <h2 className="subtitle">is my name</h2>
               </div>
             </div>
           </div>
         </section>
-        <div className="section">
-          <div className="container">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/resume" component={Resume} />
-            <Route exact path="/about" component={About} />
-          </div>
-        </div>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/resume" component={Resume} />
+        <Route exact path="/about" component={About} />
       </div>
     </Router>
   );
